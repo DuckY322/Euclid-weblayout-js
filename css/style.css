@@ -282,6 +282,20 @@ html {
   stroke: var(--color-dark-orange);
 }
 
+.header__button_burger svg rect {
+  transition-property: fill, width;
+  transition-duration: var(--anim-time);
+  transition-timing-function: var(--anim-timing-function);
+}
+
+.header__button_burger:hover svg rect:nth-child(2) {
+  width: 75%;
+}
+
+.header__button_burger:hover svg rect:nth-child(3) {
+  width: 50%;
+}
+
 /* section-design-solutions */
 
 .section-design-solutions__container {
@@ -338,16 +352,26 @@ html {
 }
 
 .section-about-us__example {
+  position: relative;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
   margin-right: 30px;
   width: 49.5%;
+}
+
+.section-about-us__image {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-image: url("../img/about-us/about-us-1.jpg");
-  background-position: center;
+  background-position: center center;
 }
 
 .section-about-us__example-more {
+  z-index: 1;
   padding: 44px 68px 42px 54px;
   background: rgba(0, 0, 0, 0.5);
 }
@@ -543,8 +567,7 @@ html {
   border-bottom: solid 1px var(--color-orange);
 }
 
-.section-questions__item:hover .section-questions__button,
-.section-questions__item:hover .section-questions__button-slash {
+.section-questions__item:hover .section-questions__button, .section-questions__item:hover .section-questions__button-slash {
   color: var(--color-orange);
 }
 
@@ -557,8 +580,7 @@ html {
   border-bottom: solid 1px var(--color-dark-orange);
 }
 
-.section-questions__item:active .section-questions__button,
-.section-questions__item:active .section-questions__button-slash {
+.section-questions__item:active .section-questions__button, .section-questions__item:active .section-questions__button-slash {
   color: var(--color-dark-orange);
 }
 
