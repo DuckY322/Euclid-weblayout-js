@@ -1,0 +1,220 @@
+:root {
+    --anim-active-element: 1.5s;
+    --anim-active-child-element: 2;
+    --anim-time-arrow: 1s;
+    --anim-timing-function: ease-in-out;
+}
+
+.active-element {
+    animation-name: anim-active-element;
+    animation-duration: var(--anim-active-element);
+    animation-timing-function: var(--anim-timing-function);
+}
+
+.active-element-reverse {
+    animation-name: anim-active-element-reverse;
+    animation-duration: var(--anim-active-element);
+    animation-timing-function: var(--anim-timing-function);
+}
+
+.active-element-up {
+    animation-name: anim-active-element-up;
+    animation-duration: var(--anim-active-element);
+    animation-timing-function: var(--anim-timing-function);
+}
+
+.active-element-down {
+    animation-name: anim-active-element-down;
+    animation-duration: var(--anim-active-element);
+    animation-timing-function: var(--anim-timing-function);
+}
+
+.active-child-element {
+    animation-duration: calc(var(--anim-active-element) * var(--anim-active-child-element));
+    animation-timing-function: var(--anim-timing-function);
+}
+
+.active-child-element-1 {
+    animation-name: anim-active-child-element-1;
+}
+
+.active-child-element-2 {
+    animation-name: anim-active-child-element-2;
+}
+
+.active-child-element-3 {
+    animation-name: anim-active-child-element-3;
+}
+
+.active-child-element-4 {
+    animation-name: anim-active-child-element-4;
+}
+
+.active-child-element-5 {
+    animation-name: anim-active-child-element-5;
+}
+
+.active-child-element-up-1 {
+    animation-name: anim-active-child-element-up-1;
+}
+
+.active-child-element-up-2 {
+    animation-name: anim-active-child-element-up-2;
+}
+
+.active-child-element-up-3 {
+    animation-name: anim-active-child-element-up-3;
+}
+
+.active-child-element-up-4 {
+    animation-name: anim-active-child-element-up-4;
+}
+
+.active-child-element-up-5 {
+    animation-name: anim-active-child-element-up-5;
+}
+
+.zero-block__arrow {
+    animation-name: anim-zero-arrow;
+    animation-duration: var(--anim-time-arrow);
+    animation-timing-function: var(--anim-timing-function);
+    animation-iteration-count: infinite;
+}
+
+@keyframes anim-active-element {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-element-reverse {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-element-up {
+    0% {
+        transform: translateY(-100vw);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-element-down {
+    0% {
+        transform: translateY(100vw);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-1 {
+    0% {
+        transform: translateX(-100vw);
+    }
+    60% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-2 {
+    0% {
+        transform: translateX(-100vw);
+    }
+    70% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-3 {
+    0% {
+        transform: translateX(-100vw);
+    }
+    80% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-4 {
+    0% {
+        transform: translateX(-100vw);
+    }
+    90% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-5 {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-up-1 {
+    0% {
+        transform: translateY(100vw);
+    }
+    60% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-up-2 {
+    0% {
+        transform: translateY(100vw);
+    }
+    70% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-up-3 {
+    0% {
+        transform: translateY(100vw);
+    }
+    80% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-up-4 {
+    0% {
+        transform: translateY(100vw);
+    }
+    90% {
+        transform: none;
+    }
+}
+
+@keyframes anim-active-child-element-up-5 {
+    0% {
+        transform: translateY(100vw);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes anim-zero-arrow {
+    0% {
+        transform: none;
+    }
+    50% {
+        transform: translateY(7.5px);
+    }
+    100% {
+        transform: none;
+    }
+}
