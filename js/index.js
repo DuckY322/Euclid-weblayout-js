@@ -9,72 +9,127 @@ const swiper = new Swiper('.swiper-container', {
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-    }
+    },
+
+    autoplay: {
+        delay: 3000,
+    },
 });
+
+let zeroElements = [{
+    position: '.zero-block',
+    element: '.zero-block__title',
+    child: null,
+    effect: 'active-element',
+    played: false,
+}, {
+    position: '.zero-block',
+    element: '.zero-block__subTitle',
+    child: null,
+    effect: 'active-element-reverse',
+    played: false,
+}, {
+    position: '.zero-block',
+    element: '.zero-block__building-images',
+    child: '.zero-block__building-image',
+    effect: 'active-child-element',
+    childEffect: ['active-child-element-down-1', 'active-child-element-down-2', 'active-child-element-down-3', 'active-child-element-down-4', 'active-child-element-down-5'],
+    played: false,
+}];
+
+let mainElements = [{
+    element: '.section-design-solutions',
+    child: null,
+    effect: 'active-element-up',
+    played: false,
+}, {
+    element: '.section-about-us__sub-title',
+    child: null,
+    effect: 'active-element',
+    played: false,
+}, {
+    element: '.section-about-us__example',
+    child: null,
+    effect: 'active-element',
+    played: false,
+}, {
+    element: '.section-about-us__double-cards',
+    child: '.section-about-us__card',
+    effect: 'active-child-element',
+    childEffect: ['active-child-element-up-5', 'active-child-element-down-5'],
+    played: false,
+}, {
+    element: '.section-how-we-work__info',
+    child: null,
+    effect: 'active-element',
+    played: false,
+}, {
+    element: '.section-how-we-work__photo',
+    child: null,
+    effect: 'active-element-reverse',
+    played: false,
+}, {
+    element: '.section-questions',
+    child: '.section-questions__item',
+    effect: 'active-child-element',
+    childEffect: ['active-child-element-1', 'active-child-element-2', 'active-child-element-3', 'active-child-element-4', 'active-child-element-5'],
+    played: false,
+}];
+
+let animlements = zeroElements.length + mainElements.length;
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    showElement('.zero-block', '.zero-block__title', null, 'active-element');
-    showElement('.zero-block', '.zero-block__subTitle', null, 'active-element-reverse');
-    showElement('.zero-block', '.zero-block__building-image', null, 'active-child-element');
-    showElement('.zero-block', '.zero-block__building-image', 0, 'active-child-element-up-1');
-    showElement('.zero-block', '.zero-block__building-image', 1, 'active-child-element-up-2');
-    showElement('.zero-block', '.zero-block__building-image', 2, 'active-child-element-up-3');
-    showElement('.zero-block', '.zero-block__building-image', 3, 'active-child-element-up-4');
-    showElement('.zero-block', '.zero-block__building-image', 4, 'active-child-element-up-5');
+    document.body.classList.remove('body-noScroll');
+    document.querySelector('.load-block').classList.add('off');
+
+    showElements(zeroElements);
+
+    if (window.pageYOffset > 0) {
+        showElements(mainElements);
+    };
 
     let openQuestion;
 
     function showHideMenu() {
         document.querySelector('.header__list').classList.toggle('header__list_active');
         document.querySelector('.header__button_burger').classList.toggle('header__button_burger_active');
-    }
+    };
 
-    function showElement(position, element, number, effect) {
-        if (number === null) {
-            document.querySelector(position).querySelectorAll(element).forEach(el => {
-                if (!el.classList.contains(effect)) {
-                    var br = el.getBoundingClientRect();
-                    let brTop = Math.round(br.top - window.screen.height);
-
-                    if (brTop < 0) {
-                        el.classList.add(effect);
-                    }
-                } else {
-                    return;
-                }
-            });
-        } else {
-            let item = document.querySelector(position).querySelectorAll(element)[number];
-            if (!item.classList.contains(effect)) {
+    function showElements(elements) {
+        for (let obj of elements) {
+            if (!obj.played) {
+                let item = document.querySelector(obj.element);
                 var br = item.getBoundingClientRect();
-                let brTop = Math.round(br.top - window.screen.height);
-
-                if (brTop < 0) {
-                    item.classList.add(effect);
+                let brTop = Math.round(br.top - window.innerHeight) + pageYOffset;
+                if (brTop < window.pageYOffset) {
+                    if (obj.child === null) {
+                        item.classList.add('active-element');
+                        item.classList.add(obj.effect);
+                    } else {
+                        item.querySelectorAll(obj.child).forEach((el, i) => {
+                            el.classList.add('active-element');
+                            el.classList.add(obj.childEffect[i]);
+                        });
+                    }
+                    obj.played = true;
+                    animlements--;
                 }
             } else {
-                return;
+                continue;
             }
-        };
-    }
+        }
+    };
 
     window.addEventListener('scroll', function() {
-        showElement('main', '.section-design-solutions', null, 'active-element-up');
-        showElement('main', '.section-about-us', null, 'active-element-reverse');
-        showElement('main', '.section-how-we-work', null, 'active-element');
-        showElement('main', '.section-questions', null, 'active-element-down');
-        showElement('.section-questions', '.section-questions__item', null, 'active-child-element');
-        showElement('.section-questions', '.section-questions__item', 0, 'active-child-element-1');
-        showElement('.section-questions', '.section-questions__item', 1, 'active-child-element-2');
-        showElement('.section-questions', '.section-questions__item', 2, 'active-child-element-3');
-        showElement('.section-questions', '.section-questions__item', 3, 'active-child-element-4');
-        showElement('.section-questions', '.section-questions__item', 4, 'active-child-element-5');
+        if (animlements > 0) {
+            showElements(mainElements);
+        }
     });
 
     document.querySelector('.header__button_burger').addEventListener('click', function() {
         showHideMenu();
-    })
+    });
 
     document.querySelectorAll('.header__link').forEach(el => {
         el.addEventListener('click', function(e) {
@@ -93,6 +148,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         });
+    });
+
+    document.querySelectorAll('.section-how-we-work__step').forEach(el => {
+        el.addEventListener('click', function() {
+            const path = this.dataset.path;
+
+            document.querySelectorAll('.section-how-we-work__step').forEach(tabBtn => {
+                tabBtn.classList.remove('section-how-we-work__step_active');
+            });
+
+            el.classList.add('section-how-we-work__step_active');
+
+            document.querySelectorAll('.section-how-we-work__content').forEach(tabContent => {
+                tabContent.classList.remove('section-how-we-work__content_active');
+            });
+
+            document.querySelector(`[data-target="${path}"]`).classList.add('section-how-we-work__content_active');
+        })
     });
 
     document.querySelectorAll('.section-questions__item').forEach(el => {
