@@ -302,6 +302,7 @@ html {
     font-size: 92px;
     font-weight: 700;
     color: var(--color-orange);
+    opacity: 0;
 }
 
 .zero-block__subTitle {
@@ -311,6 +312,7 @@ html {
     font-size: 52px;
     font-weight: 700;
     color: var(--color-EC);
+    opacity: 0;
 }
 
 .zero-block__building-images {
@@ -324,6 +326,7 @@ html {
     width: 75px;
     height: 100%;
     object-fit: contain;
+    opacity: 0;
 }
 
 .zero-block__arrow {
@@ -502,6 +505,10 @@ html {
 
 /* section-design-solutions */
 
+.section-design-solutions {
+    opacity: 0;
+}
+
 .section-design-solutions__container {
     position: relative;
     padding: 0;
@@ -568,6 +575,7 @@ html {
     font-size: 16px;
     font-weight: 400;
     line-height: 200%;
+    opacity: 0;
 }
 
 .section-about-us__cards {
@@ -581,6 +589,7 @@ html {
     justify-content: flex-end;
     margin-right: 30px;
     width: 49.5%;
+    opacity: 0;
 }
 
 .section-about-us__image {
@@ -628,6 +637,7 @@ html {
     flex-direction: column;
     width: 49.5%;
     overflow: hidden;
+    opacity: 0;
 }
 
 .section-about-us__card {
@@ -738,6 +748,7 @@ html {
     align-items: flex-start;
     width: 42.825%;
     overflow: hidden;
+    opacity: 0;
 }
 
 .section-how-we-work__content {
@@ -795,6 +806,7 @@ html {
 
 .section-how-we-work__photo {
     width: 49.154%;
+    opacity: 0;
 }
 
 
@@ -817,6 +829,7 @@ html {
     border-top: solid 1px transparent;
     border-bottom: solid 1px var(--color-CA);
     transition: border var(--anim-time) var(--anim-timing-function);
+    opacity: 0;
 }
 
 .section-questions__answer {

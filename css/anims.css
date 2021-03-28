@@ -9,6 +9,7 @@
     animation-name: anim-active-element;
     animation-duration: var(--anim-active-element);
     animation-timing-function: var(--anim-timing-function);
+    opacity: 1;
 }
 
 .active-element-reverse {

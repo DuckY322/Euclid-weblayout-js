@@ -17,19 +17,16 @@ const swiper = new Swiper('.swiper-container', {
 });
 
 let zeroElements = [{
-    position: '.zero-block',
     element: '.zero-block__title',
     child: null,
     effect: 'active-element',
     played: false,
 }, {
-    position: '.zero-block',
     element: '.zero-block__subTitle',
     child: null,
     effect: 'active-element-reverse',
     played: false,
 }, {
-    position: '.zero-block',
     element: '.zero-block__building-images',
     child: '.zero-block__building-image',
     effect: 'active-child-element',
@@ -40,12 +37,12 @@ let zeroElements = [{
 let mainElements = [{
     element: '.section-design-solutions',
     child: null,
-    effect: 'active-element-up',
+    effect: 'active-element',
     played: false,
 }, {
     element: '.section-about-us__sub-title',
     child: null,
-    effect: 'active-element',
+    effect: 'active-element-reverse',
     played: false,
 }, {
     element: '.section-about-us__example',
@@ -54,9 +51,8 @@ let mainElements = [{
     played: false,
 }, {
     element: '.section-about-us__double-cards',
-    child: '.section-about-us__card',
-    effect: 'active-child-element',
-    childEffect: ['active-child-element-up-5', 'active-child-element-down-5'],
+    child: null,
+    effect: 'active-element-reverse',
     played: false,
 }, {
     element: '.section-how-we-work__info',
@@ -138,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             e.preventDefault();
-            let scrollto = this.getAttribute('scrollto');
+            let scrollto = this.getAttribute('href');
             const scrollTarget = document.querySelector(scrollto);
             const topOffset = 50;
             const elementPosition = scrollTarget.getBoundingClientRect().top;
