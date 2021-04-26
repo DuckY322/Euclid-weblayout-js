@@ -121,6 +121,12 @@
     animation-timing-function: var(--anim-timing-function);
 }
 
+.section-how-we-work__image_active {
+    animation-name: tabs-image-active;
+    animation-duration: var(--anim-tabs-content);
+    animation-timing-function: var(--anim-timing-function);
+}
+
 @keyframes anim-active-element {
     0% {
         transform: translateX(-100vw);
@@ -361,6 +367,15 @@
 @keyframes tabs-content-active {
     0% {
         transform: translateX(-100%);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes tabs-image-active {
+    0% {
+        transform: translateX(100%);
     }
     100% {
         transform: none;

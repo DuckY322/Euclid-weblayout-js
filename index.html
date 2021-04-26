@@ -19,7 +19,7 @@
 
 <body class="body-noScroll">
     <div class="flex-row load-block">
-        <img class="load-block__logo" src="img/logo.png" alt="logo">
+        <img class="load-block__logo" src="img/header/logo.png" alt="logo">
     </div>
     <div class="zero-block">
         <video class="zero-block__video" loop autoplay muted>
@@ -87,7 +87,7 @@
                                     stroke-width="2"
                                 />
                             </svg>
-                        </button>
+                    </button>
                 </nav>
             </div>
         </header>
@@ -246,7 +246,10 @@
                             </div>
                         </div>
                         <div class="section-how-we-work__photo">
-                            <img src="img/how-we-work/how-we-work-1.jpg" alt="How e work image">
+                            <img class="section-how-we-work__image section-how-we-work__image_active" data-target-img="one" src="img/how-we-work/how-we-work-1.jpg" alt="how-we-work-image-1">
+                            <img class="section-how-we-work__image" data-target-img="two" src="img/how-we-work/how-we-work-2.jpg" alt="how-we-work-image-2">
+                            <img class="section-how-we-work__image" data-target-img="three" src="img/how-we-work/how-we-work-3.jpg" alt="how-we-work-image-3">
+                            <img class="section-how-we-work__image" data-target-img="four" src="img/how-we-work/how-we-work-4.jpg" alt="how-we-work-image-4">
                         </div>
                     </div>
                 </div>
@@ -406,25 +409,25 @@
                         <a class="background-image footer__logo" href=""></a>
                         <ul class="footer__list">
                             <li class="footer__item">
-                                <a class="footer__link" href="">О нас</a>
+                                <a class="footer__link" href="#section-about-us">О нас</a>
                             </li>
                             <li class="footer__item">
-                                <a class="footer__link" href="">Проекты</a>
+                                <a class="footer__link">Проекты</a>
                             </li>
                             <li class="footer__item">
-                                <a class="footer__link" href="">Отзывы</a>
+                                <a class="footer__link">Отзывы</a>
                             </li>
                             <li class="footer__item">
-                                <a class="footer__link" href="">Договор оферты</a>
+                                <a class="footer__link">Договор оферты</a>
                             </li>
                             <li class="footer__item">
-                                <a class="footer__link" href="">Договор подряда</a>
+                                <a class="footer__link">Договор подряда</a>
                             </li>
                             <li class="footer__item">
-                                <a class="footer__link" href="">Конфиденциальность</a>
+                                <a class="footer__link">Конфиденциальность</a>
                             </li>
                             <li class="footer__item">
-                                <a class="footer__link" href="">Партнёрское соглашение</a>
+                                <a class="footer__link">Партнёрское соглашение</a>
                             </li>
                         </ul>
                     </div>
@@ -442,13 +445,13 @@
                         <textarea class="footer__input footer__input_message" name="message" placeholder="Сообщение"></textarea>
                         <div class="flex-row footer__submit">
                             <button class="btn footer__button" type="submit">
-                                    Отправить данные
-                                </button>
+                                Отправить данные
+                            </button>
                             <div class="flex-row">
                                 <input class="footer__input_check" id="footer__check" required type="checkbox" name="agreesToTheProcessingOfTheData">
                                 <label class="footer__label" for="footer__check">
-                                        Согласен на обработку данных
-                                    </label>
+                                    Согласен на обработку данных
+                                </label>
                             </div>
                         </div>
                     </form>
